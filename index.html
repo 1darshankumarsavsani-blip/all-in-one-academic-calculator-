@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GTU Academic Calculator</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f4f4;
+    padding:20px;
+}
+
+.box{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:5px 0;
+}
+
+button{
+    padding:10px 15px;
+    margin:5px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+.dark{
+    background:#121212;
+    color:white;
+}
+
+.dark .box{
+    background:#1e1e1e;
+}
+
+.dark input{
+    background:#333;
+    color:white;
+}
+
+.result{
+    font-weight:bold;
+    color:green;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>GTU Academic Calculator</h2>
+
+<hr>
+
+<h3>CIA Calculator</h3>
+
+<input type="number" id="cia1" placeholder="CIA 1">
+<input type="number" id="cia2" placeholder="CIA 2">
+<input type="number" id="cia3" placeholder="CIA 3">
+
+<button onclick="calculateCIA()">
+Calculate CIA
+</button>
+
+<p id="ciaResult" class="result"></p>
+
+<hr>
+
+<h3>Grade Calculator</h3>
+
+<input type="number" id="marks" placeholder="Enter Marks">
+
+<button onclick="showGrade()">
+Get Grade
+</button>
+
+<p id="gradeResult" class="result"></p>
+
+<hr>
+
+<h3>CGPA To Percentage</h3>
+
+<input type="number" id="cgpa" step="0.01"
+placeholder="Enter CGPA">
+
+<button onclick="calculatePercentage()">
+Convert
+</button>
+
+<p id="percentageResult" class="result"></p>
+
+<hr>
+
+<button onclick="toggleTheme()">
+Dark Mode
+</button>
+
+</div>
+
+<script>
+
+function calculateCIA(){
+
+let c1 = Number(document.getElementById("cia1").value);
+let c2 = Number(document.getElementById("cia2").value);
+let c3 = Number(document.getElementById("cia3").value);
+
+let avg = (c1+c2+c3)/3;
+
+document.getElementById("ciaResult").innerHTML =
+"CIA Average : " + avg.toFixed(2);
+
+}
+
+function showGrade(){
+
+let marks =
+Number(document.getElementById("marks").value);
+
+let grade = "";
+
+if(marks >= 85)
+grade = "AA (10)";
+else if(marks >= 75)
+grade = "AB (9)";
+else if(marks >= 65)
+grade = "BB (8)";
+else if(marks >= 55)
+grade = "BC (7)";
+else if(marks >= 45)
+grade = "CC (6)";
+else if(marks >= 40)
+grade = "CD (5)";
+else if(marks >= 35)
+grade = "DD (4)";
+else
+grade = "FF (0)";
+
+document.getElementById("gradeResult").innerHTML =
+"Grade : " + grade;
+
+}
+
+function calculatePercentage(){
+
+let cgpa =
+Number(document.getElementById("cgpa").value);
+
+let percentage =
+(cgpa - 0.5) * 10;
+
+document.getElementById("percentageResult").innerHTML =
+"Percentage : " +
+percentage.toFixed(2) + "%";
+
+}
+
+function toggleTheme(){
+
+document.body.classList.toggle("dark");
+
+}
+
+</script>
+
+</body>
+</html>

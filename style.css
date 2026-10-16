@@ -1,0 +1,19 @@
+.dark {
+    background-color: #121212;
+    color: white;
+}
+
+.dark input,
+.dark button {
+    background: #333;
+    color: white;
+    border: 1px solid white;
+}
+
+.card{
+    width:250px;
+    padding:20px;
+    margin:10px;
+    border-radius:10px;
+    box-shadow:0 0 10px #ccc;
+}
